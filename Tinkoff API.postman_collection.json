@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"Amount\": 100000,\n    \"OrderId\": \"test-03032023-A-3\",\n    \"Description\": \"Товар на сумму 1000 рублей\",\n    \"Recurrent\": \"Y\",\n    \"CustomerKey\": \"employee-A\",\n    \"PayType\": \"T\"\n}",
+					"raw": "{\n    \"Amount\": 10000,\n    \"OrderId\": \"[OrderId]\",\n    \"Description\": \"[Description]\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -27,6 +27,32 @@
 					],
 					"path": [
 						"Init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetState",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"PaymentId\": \"[PaymentId]\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/GetState",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"GetState"
 					]
 				}
 			},
@@ -135,6 +161,110 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Confirm",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"PaymentId\":\"[PaymentId]\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/Confirm",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveCard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"CustomerKey\" : \"[CustomerKey]\",\n    \"CardId\" : \"[CardId]\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/RemoveCard",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"RemoveCard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetQq",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"PaymentId\": \"[PaymentId]\",\n    \"DataType\": \"PAYLOAD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/GetQr",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"GetQr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QrMembersList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"PaymentId\": \"[PaymentId]\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/QrMembersList",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"QrMembersList"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -192,6 +322,18 @@
 			"key": "terminal_password",
 			"value": "",
 			"type": "string"
+		},
+		{
+			"key": "terminal_key",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "terminal_password",
+			"value": "",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }
